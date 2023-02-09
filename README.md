@@ -1,6 +1,6 @@
-# Learned Cache: The Recrush Way
+# Learned Systems: The Recrush Way
 
-A brief study of caching policies and systems.
+A brief study of learned systems.
 
 ## Why "recrush"?
 

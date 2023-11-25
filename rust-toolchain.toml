@@ -14,4 +14,4 @@
 
 [toolchain]
 channel = "stable"
-components = ["rustfmt", "clippy", "rust-src", "miri", "rust-analyzer"]
+components = ["rustfmt", "clippy", "rust-src", "rust-analyzer"]

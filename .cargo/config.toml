@@ -1,0 +1,3 @@
+[build]
+# Keep a core reserved to prevent Cargo pin CPU.
+jobs = -1

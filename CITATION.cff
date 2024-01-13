@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+title: recrush
+abstract: The Next-Generation Intelligent Caching Solution. Insight into your data flow, beyond mere collaboration. 
+type: software
+authors:
+  - name: "Chojan Shang"
+    orcid: "https://orcid.org/0000-0002-5145-1755"
+identifiers:
+  - type: url
+    value: "https://github.com/recrush/recrush"
+repository-code: 'https://github.com/recrush/recrush'
+license: Apache-2.0 AND MIT

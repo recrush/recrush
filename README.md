@@ -2,6 +2,10 @@
 
 (WIP) The Next-Generation Intelligent Caching Solution. Insight into your data flow, beyond mere collaboration.
 
+## Architecture
+
+![recrush architecture](./docs/assets/img/recrush-architecture.png)
+
 ## Why "recrush"?
 
 **[Urban Dictionary: recrush]**

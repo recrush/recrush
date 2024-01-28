@@ -6,6 +6,16 @@
 
 ![recrush architecture](./docs/assets/img/recrush-architecture.png)
 
+## Workspace Management
+
+recrush uses [cargo-hakari](https://crates.io/crates/cargo-hakari) to ensure that all workspace dependencies enable the same set of features. This dramatically improves compilation time when switching between different subsets of packages, because the sets of enabled features remain consistent.
+
+```bash
+cargo install cargo-hakari --locked # only needed on the first run
+cargo hakari generate
+cargo hakari manage-deps
+```
+
 ## Why "recrush"?
 
 **[Urban Dictionary: recrush]**

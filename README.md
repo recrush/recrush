@@ -26,7 +26,7 @@ cargo hakari manage-deps
 > It can happen days or years after the initial crush.
 > It is not considered a recrush if the person has had a continual crush for the duration of time, there must be evidence of uncrushing. 
 
-[Urban Dictionary: recrush]: https://www.merriam-webster.com/dictionary/abode](https://www.urbandictionary.com/define.php?term=recrush
+[Urban Dictionary: recrush]: https://www.urbandictionary.com/define.php?term=recrush
 
 ## License
 

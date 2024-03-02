@@ -1,5 +1,5 @@
-mod cache;
 mod admission;
+mod cache;
 mod eviction;
 
 pub use cache::{ModularCache, TtlCache};

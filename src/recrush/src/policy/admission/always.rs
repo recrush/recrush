@@ -1,12 +1,12 @@
 use std::borrow::Borrow;
 use std::hash::Hash;
 
-use crate::policy::InsertionPolicy;
+use crate::policy::AdmissionPolicy;
 
 #[derive(Default)]
-pub struct AlwaysInsertPolicy {}
+pub struct AlwaysAdmissionPolicy {}
 
-impl<K> InsertionPolicy<K> for AlwaysInsertPolicy {
+impl<K> AdmissionPolicy<K> for AlwaysAdmissionPolicy {
     fn should_add(&mut self, _key: &K) -> bool {
         true
     }
@@ -44,7 +44,7 @@ mod tests {
 
     #[test]
     fn always_returns_true() {
-        let mut policy = AlwaysInsertPolicy::default();
+        let mut policy = AlwaysAdmissionPolicy::default();
 
         for i in 0..10 {
             assert!(policy.should_add(&i))

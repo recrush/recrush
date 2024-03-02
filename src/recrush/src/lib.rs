@@ -2,18 +2,18 @@ mod cache;
 mod policy;
 
 pub use cache::{ModularCache, TtlCache};
-pub use policy::{EvictionPolicy, InsertionPolicy};
+pub use policy::{AdmissionPolicy, EvictionPolicy};
 
 #[cfg(feature = "async")]
 pub use crate::cache::ConcurrentCache;
 
 pub mod preconfig {
-    use super::policy::eviction::LruEvictionPolicy;
-    use super::policy::insertion::AlwaysInsertPolicy;
+    use super::policy::AlwaysAdmissionPolicy;
+    use super::policy::LruEvictionPolicy;
     use super::ModularCache;
 
-    pub type LruCache<K, V> = ModularCache<K, V, AlwaysInsertPolicy, LruEvictionPolicy<K>>;
-    pub type TtlLruCache<K, V> = super::TtlCache<K, V, AlwaysInsertPolicy, LruEvictionPolicy<K>>;
+    pub type LruCache<K, V> = ModularCache<K, V, AlwaysAdmissionPolicy, LruEvictionPolicy<K>>;
+    pub type TtlLruCache<K, V> = super::TtlCache<K, V, AlwaysAdmissionPolicy, LruEvictionPolicy<K>>;
 
     #[cfg(feature = "async")]
     pub mod concurrent {

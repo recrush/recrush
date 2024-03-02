@@ -4,44 +4,44 @@ use std::hash::Hash;
 
 use crate::{
     cache::Cache,
-    policy::{EvictionPolicy, InsertionPolicy},
+    policy::{AdmissionPolicy, EvictionPolicy},
 };
 
 #[derive(Default)]
-pub struct ModularCache<K, V, IP, EP>
+pub struct ModularCache<K, V, AP, EP>
 where
     K: Hash + Eq,
-    IP: Default + InsertionPolicy<K>,
+    AP: Default + AdmissionPolicy<K>,
     EP: Default + EvictionPolicy<K>,
 {
     data: HashMap<K, V>,
 
-    insertion_policy: IP,
+    insertion_policy: AP,
     eviction_policy: EP,
 
     maximum_size: usize,
 }
 
-impl<K, V, IP, EP> ModularCache<K, V, IP, EP>
+impl<K, V, AP, EP> ModularCache<K, V, AP, EP>
 where
     K: Hash + Eq + std::fmt::Debug,
-    IP: Default + InsertionPolicy<K>,
+    AP: Default + AdmissionPolicy<K>,
     EP: Default + EvictionPolicy<K>,
 {
     pub fn new(maximum_size: usize) -> Self {
         Self {
             data: HashMap::new(),
-            insertion_policy: IP::default(),
+            insertion_policy: AP::default(),
             eviction_policy: EP::default(),
             maximum_size,
         }
     }
 }
 
-impl<K, V, IP, EP> Cache for ModularCache<K, V, IP, EP>
+impl<K, V, AP, EP> Cache for ModularCache<K, V, AP, EP>
 where
     K: Hash + Eq + std::fmt::Debug,
-    IP: Default + InsertionPolicy<K>,
+    AP: Default + AdmissionPolicy<K>,
     EP: Default + EvictionPolicy<K>,
 {
     type Key = K;

@@ -4,7 +4,7 @@ use std::{collections::HashMap, time::Duration};
 
 use crate::{
     cache::Cache,
-    policy::{EvictionPolicy, InsertionPolicy},
+    policy::{AdmissionPolicy, EvictionPolicy},
 };
 
 struct CacheItem<V> {
@@ -29,43 +29,43 @@ impl<V> From<V> for CacheItem<V> {
 }
 
 #[derive(Default)]
-pub struct TtlCache<K, V, IP, EP>
+pub struct TtlCache<K, V, AP, EP>
 where
     K: Hash + Eq,
-    IP: Default + InsertionPolicy<K>,
+    AP: Default + AdmissionPolicy<K>,
     EP: Default + EvictionPolicy<K>,
 {
     data: HashMap<K, CacheItem<V>>,
 
     ttl: Duration,
 
-    insertion_policy: IP,
+    insertion_policy: AP,
     eviction_policy: EP,
 
     maximum_size: usize,
 }
 
-impl<K, V, IP, EP> TtlCache<K, V, IP, EP>
+impl<K, V, AP, EP> TtlCache<K, V, AP, EP>
 where
     K: Hash + Eq + std::fmt::Debug,
-    IP: Default + InsertionPolicy<K>,
+    AP: Default + AdmissionPolicy<K>,
     EP: Default + EvictionPolicy<K>,
 {
     pub fn new(maximum_size: usize, ttl: Duration) -> Self {
         Self {
             data: HashMap::new(),
             ttl,
-            insertion_policy: IP::default(),
+            insertion_policy: AP::default(),
             eviction_policy: EP::default(),
             maximum_size,
         }
     }
 }
 
-impl<K, V, IP, EP> Cache for TtlCache<K, V, IP, EP>
+impl<K, V, AP, EP> Cache for TtlCache<K, V, AP, EP>
 where
     K: Hash + Eq + std::fmt::Debug,
-    IP: Default + InsertionPolicy<K>,
+    AP: Default + AdmissionPolicy<K>,
     EP: Default + EvictionPolicy<K>,
 {
     type Key = K;

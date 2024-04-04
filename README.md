@@ -1,6 +1,6 @@
 # recrush
 
-(WIP) The Next-Generation Intelligent Caching Solution. Insight into your data flow, beyond mere collaboration.
+(WIP) The Next-Generation Intelligent Storage Solution: Gain insight into your data flow.
 
 ## Architecture
 
